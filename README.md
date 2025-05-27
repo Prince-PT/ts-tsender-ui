@@ -1,8 +1,4 @@
-Here's a clean and informative `README.md` file for your [ts-tsender-ui](https://github.com/Prince-PT/ts-tsender-ui) project:
 
----
-
-````markdown
 # ts-tsender-ui 🎯
 
 A modern, TypeScript-based frontend UI for interacting with **ts-sender**, a transaction sender utility. Built using **Next.js**, **Tailwind CSS**, and **TypeScript**, this project aims to provide a clean and developer-friendly interface for testing and sending Ethereum transactions via a smart contract or backend service.
