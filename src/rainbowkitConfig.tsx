@@ -1,5 +1,3 @@
-"use client";
-
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import {
   arbitrum,
@@ -11,18 +9,12 @@ import {
   sepolia,
 } from "wagmi/chains";
 
-// Create the config only once using a singleton pattern
-let config: ReturnType<typeof getDefaultConfig> | null = null;
+// Initialize WalletConnect Core once when module is loaded
+const wagmiProviderConfig = getDefaultConfig({
+  appName: "T-Sender",
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!,
+  chains: [arbitrum, base, mainnet, optimism, anvil, zksync, sepolia],
+  ssr: false,
+});
 
-// Function to get the configuration, ensures it's only created once
-export default function getConfig() {
-  if (config === null) {
-    config = getDefaultConfig({
-      appName: "T-Sender",
-      projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!,
-      chains: [arbitrum, base, mainnet, optimism, anvil, zksync, sepolia],
-      ssr: false,
-    });
-  }
-  return config;
-}
+export default wagmiProviderConfig;
